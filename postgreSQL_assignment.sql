@@ -62,6 +62,20 @@ select employee_name from employees offset 2 limit 2;
 
 
 -- Query 3: Calculate and display the average age of all employees.
-select avg(age) from employees;
+select avg(age)as average_age from employees;
+
+
+
+-- Query 4: Retrieve the names of employees whose email addresses contain 'example.com', 'example.net', or 'google.com'.
+select employee_name from employees where email ilike('%example.com') or email ilike('%example.net') or email ilike('%google.com');
+
+
+
+
+
+
+
+
+
 
 select * from employees;
