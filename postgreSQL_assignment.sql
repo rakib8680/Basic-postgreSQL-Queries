@@ -87,5 +87,11 @@ set status = 'Promoted'
 where salary = (select max(salary) from employees);
 
 
-select * from employees;
-select * from departments;
+
+
+-- Query 7: Retrieve the department name and the average salary of employees in each department:
+ select department_name,avg(salary)as avg_salary from employees join departments using(department_id)
+group by department_name 
+
+
+
