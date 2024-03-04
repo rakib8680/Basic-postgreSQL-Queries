@@ -11,20 +11,17 @@ create table employees (
     status VARCHAR(20)
 );
 
-
 -- create department table 
 create table departments (
     department_id serial PRIMARY KEY,
     department_name VARCHAR(50) not null
 );
 
-
 -- insert department data 
 INSERT INTO departments (department_name) VALUES 
     ('Engineering'),
     ('Marketing'),
     ('Finance');
-
 
 -- insert employees data
 INSERT INTO employees (employee_name, age, email, department_id, salary, status) VALUES
@@ -51,6 +48,11 @@ INSERT INTO employees (employee_name, age, email, department_id, salary, status)
 
 
 
+----------------------------------------------------------------------------
+----------------------------------------------------------------------------
+
+
+
 -- Query 1: Retrieve all employees with a salary greater than 60000.
 select * from employees where salary > 60000;
 
@@ -72,12 +74,17 @@ select employee_name from employees where email ilike('%example.com') or email i
 
 
 
-
 -- Query 5: Retrieve the names of all employees who belong to the department titled 'Engineering'.
 select employee_name from employees
 join departments using(department_id) where department_name = 'Engineering';
 
 
+
+
+-- Query 6: Update the status of the employee with the highest salary to 'Promoted'.
+update employees 
+set status = 'Promoted'
+where salary = (select max(salary) from employees);
 
 
 select * from employees;
