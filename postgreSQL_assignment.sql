@@ -10,3 +10,10 @@ create table employees (
     salary NUMERIC(10,2),
     status VARCHAR(20)
 );
+
+
+-- create department table 
+create table departments (
+    department_id serial PRIMARY KEY,
+    department_name VARCHAR(50) not null
+);
