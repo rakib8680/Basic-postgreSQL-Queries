@@ -59,7 +59,7 @@ select * from employees where salary > 60000;
 
 
 -- Query 2: Retrieve the names of employees using a limit of 2, starting from the 3rd employee.
-select employee_name from employees offset 2 limit 2;
+select employee_name from employees offset 2 limit 2; --by using offset 2, it will start from the 3rd employee
 
 
 
@@ -69,6 +69,7 @@ select avg(age)as average_age from employees;
 
 
 -- Query 4: Retrieve the names of employees whose email addresses contain 'example.com', 'example.net', or 'google.com'.
+--  The ILIKE operator is used for case-insensitive pattern matching in PostgreSQL, so it will match email addresses regardless of the case of the letters.
 select employee_name from employees where email ilike('%example.com') or email ilike('%example.net') or email ilike('%google.com');
 
 
@@ -76,7 +77,7 @@ select employee_name from employees where email ilike('%example.com') or email i
 
 -- Query 5: Retrieve the names of all employees who belong to the department titled 'Engineering'.
 select employee_name from employees
-join departments using(department_id) where department_name = 'Engineering';
+join departments using(department_id) where department_name = 'Engineering'; --using join to join the employees and departments table and using the department_id to match the department_name
 
 
 
@@ -84,14 +85,14 @@ join departments using(department_id) where department_name = 'Engineering';
 -- Query 6: Update the status of the employee with the highest salary to 'Promoted'.
 update employees 
 set status = 'Promoted'
-where salary = (select max(salary) from employees);
+where salary = (select max(salary) from employees); --using subquery to find the employee with the highest salary and then updating the status to 'Promoted'
 
 
 
 
 -- Query 7: Retrieve the department name and the average salary of employees in each department:
  select department_name,avg(salary)as avg_salary from employees join departments using(department_id)
-group by department_name 
+group by department_name --using group by to group the result by department_name and then using avg function to calculate the average salary for each department
 
 
 
