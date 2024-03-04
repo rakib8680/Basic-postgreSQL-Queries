@@ -60,4 +60,8 @@ select * from employees where salary > 60000;
 select employee_name from employees offset 2 limit 2;
 
 
+
+-- Query 3: Calculate and display the average age of all employees.
+select avg(age) from employees;
+
 select * from employees;
