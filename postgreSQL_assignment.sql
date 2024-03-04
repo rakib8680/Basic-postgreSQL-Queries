@@ -50,3 +50,10 @@ INSERT INTO employees (employee_name, age, email, department_id, salary, status)
     ('Taylor', 31, 'taylor@yahoo.com', 3, 58000, NULL);
 
 
+
+-- Query 1: Retrieve all employees with a salary greater than 60000
+select * from employees where salary > 60000;
+
+
+
+select * from employees;
