@@ -27,4 +27,26 @@ The WHERE clause is used to filter the rows returned by a SELECT statement. It i
 SELECT * FROM employees WHERE salary > 50000;
 ```
 
+## 6. What are the LIMIT and OFFSET clauses used for?
 
+**LIMIT**: The LIMIT clause is used to limit the number of rows returned by a SELECT statement. It is used to specify the maximum number of rows to return. Example :
+
+```sql
+SELECT * FROM employees LIMIT 10;
+```
+
+**OFFSET**: The OFFSET clause is used to skip a specified number of rows before returning the remaining rows. It is used to specify the number of rows to skip. Example :
+
+```sql
+SELECT * FROM employees OFFSET 10;
+```
+
+## 7. How can you perform data modification using UPDATE statements?
+
+The UPDATE statement is used to modify the existing data in a table. It is used to update the values of one or more columns in a table. Example :
+
+```sql
+UPDATE employees
+SET salary = 60000
+WHERE employee_id = 1001;
+```
