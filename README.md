@@ -78,3 +78,21 @@ SELECT COUNT(*) FROM employees;
 SELECT SUM(salary) FROM employees;
 SELECT AVG(salary) FROM employees;
 ```
+
+## 11. What is the purpose of an index in PostgreSQL, and how does it optimize query performance?
+
+An index is a database object that is used to speed up the retrieval of rows from a table. It is used to optimize the performance of SELECT, UPDATE, and DELETE statements by providing a fast access path to the data in the table. It is used to reduce the number of disk I/O operations required to retrieve the data from the table. Example :
+
+```sql
+CREATE INDEX idx_employee_name ON employees(employee_name);
+```
+
+## 12. Explain the concept of a PostgreSQL view and how it differs from a table.
+
+A view is a virtual table that is based on the result set of a SELECT statement. It is used to simplify complex queries. It is a way to store a query in the database so that it can be reused. Example :
+
+```sql
+CREATE VIEW employee_details AS
+SELECT employee_id, employee_name, salary, department_name
+FROM employees JOIN departments USING(department_id);
+```
