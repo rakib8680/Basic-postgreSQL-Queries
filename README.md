@@ -38,7 +38,7 @@ SELECT * FROM employees LIMIT 10;
 **OFFSET**: The OFFSET clause is used to skip a specified number of rows before returning the remaining rows. It is used to specify the number of rows to skip. Example :
 
 ```sql
-SELECT * FROM employees OFFSET 10;
+SELECT * FROM employees OFFSET 5;
 ```
 
 ## 7. How can you perform data modification using UPDATE statements?
@@ -49,4 +49,32 @@ The UPDATE statement is used to modify the existing data in a table. It is used 
 UPDATE employees
 SET salary = 60000
 WHERE employee_id = 1001;
+```
+
+## 8. What is the significance of the JOIN operation, and how does it work in PostgreSQL?
+
+The JOIN operation is used to combine rows from two or more tables based on a related column between them. It is used to retrieve data from multiple tables. There are different types of JOIN operations such as INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL JOIN. Example of INNER JOIN :
+
+```sql
+SELECT employee_name FROM employees
+JOIN departments USING(department_id) WHERE department_name = 'Engineering';
+```
+
+## 9. Explain the GROUP BY clause and its role in aggregation operations.
+
+The GROUP BY clause is used to group the rows returned by a SELECT statement based on the values of one or more columns. It is used to perform aggregation operations such as COUNT, SUM, AVG, MIN, and MAX on the grouped data. Example :
+
+```sql
+SELECT department_name,AVG(salary) AS avg_salary FROM employees JOIN departments USING(department_id)
+GROUP BY department_name
+```
+
+## 10. How can you calculate aggregate functions like COUNT, SUM, and AVG in PostgreSQL?
+
+In PostgreSQL, aggregate functions such as COUNT, SUM, and AVG can be calculated using the SELECT statement and the GROUP BY clause. Example :
+
+```sql
+SELECT COUNT(*) FROM employees;
+SELECT SUM(salary) FROM employees;
+SELECT AVG(salary) FROM employees;
 ```
